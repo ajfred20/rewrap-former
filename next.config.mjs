@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  build: {
+    notFound: false,
+  },
 };
 
 export default nextConfig;
