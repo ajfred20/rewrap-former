@@ -1,3 +1,5 @@
+"use client";
+
 import { Layout } from "@/components/layout";
 import { CodePreview } from "@/components/code-preview";
 import { Testimonial } from "@/components/testimonial";
