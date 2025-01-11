@@ -1,14 +1,14 @@
 export function Footer() {
   return (
     <footer className="border-t border-zinc-200 dark:border-zinc-800">
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex items-center space-x-1 text-sm text-zinc-600 dark:text-zinc-400">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-center sm:text-left">
+          <div className="flex items-center space-x-1 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
             <span>© {new Date().getFullYear()}</span>
             <span className="font-semibold">Rewrap Package.</span>
           </div>
 
-          <div className="text-sm text-zinc-600 dark:text-zinc-400">
+          <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
             Built with 💜 by{" "}
             <a
               href="https://x.com/iamajfred_"

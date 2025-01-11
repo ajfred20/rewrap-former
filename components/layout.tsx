@@ -1,12 +1,13 @@
 "use client";
 
-import { Moon, Sun, Home, Book, Layers, Newspaper, Laptop } from "lucide-react";
+import { Moon, Sun, Book, Newspaper, Laptop, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -19,10 +20,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-bold text-purple-600 dark:text-purple-400 flex items-center"
+            className="text-lg sm:text-xl font-bold text-purple-600 dark:text-purple-400 flex items-center"
           >
-            Rewrap
+            Rewrapped
           </Link>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/docs"
@@ -30,13 +33,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
             >
               <Book className="mr-1" size={18} />
               Docs
-            </Link>
-            <Link
-              href="/components"
-              className="text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 flex items-center"
-            >
-              <Layers className="mr-1" size={18} />
-              Components
             </Link>
             <Link
               href="/blog"
@@ -53,6 +49,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               Showcase
             </Link>
           </nav>
+
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
@@ -62,8 +59,50 @@ export function Layout({ children }: { children: React.ReactNode }) {
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </Button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
+            <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+              <Link
+                href="/docs"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Book className="mr-2" size={18} />
+                Docs
+              </Link>
+              <Link
+                href="/blog"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Newspaper className="mr-2" size={18} />
+                Blog
+              </Link>
+              <Link
+                href="/showcase"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-purple-600 dark:hover:text-purple-400 flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Laptop className="mr-2" size={18} />
+                Showcase
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
       <main className="pt-16">{children}</main>
     </div>

@@ -20,12 +20,12 @@ vite-tailwind-installer`;
 export default function RewrapDocsPage() {
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-zinc-900 dark:text-white mb-6 flex items-center">
+      <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6 flex items-center">
           How to use Rewrap
         </h1>
 
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           <section>
             <h2 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-200 mb-4">
               React Integration

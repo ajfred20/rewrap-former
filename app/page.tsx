@@ -40,14 +40,14 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-40">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden pt-12 sm:pt-16 md:pt-32 pb-16 sm:pb-20 md:pb-40">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white mb-4 sm:mb-6 tracking-tight px-2">
               Seamlessly Integrate Tailwind CSS
-              <span className="block">to your React projects</span>
+              <span className="block mt-2">to your React projects</span>
             </h1>
-            <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-8 md:mb-10 leading-relaxed px-3 sm:px-4">
               Rewrap is a utility-first CSS framework that effortlessly add
               Tailwind CSS into your React applications. Use classes like{" "}
               <code className="text-purple-600 dark:text-purple-400 font-mono bg-purple-50 dark:bg-purple-900/20 rounded px-1">
@@ -68,25 +68,25 @@ export default function Home() {
               to build any design, directly in your markup, without leaving your
               React environment.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/docs">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-3 sm:px-4">
+              <Link href="/docs" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-purple-600 hover:bg-purple-700 text-base font-medium px-8"
+                  className="bg-purple-600 hover:bg-purple-700 text-sm sm:text-base font-medium px-6 sm:px-8 w-full sm:w-auto"
                 >
                   Get started
-                  <ArrowRight className="ml-2" size={18} />
+                  <ArrowRight className="ml-2" size={16} />
                 </Button>
               </Link>
 
-              <div className="relative w-full sm:w-auto">
+              <div className="relative w-full sm:w-auto mt-3 sm:mt-0">
                 <Search
                   className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-zinc-400"
-                  size={20}
+                  size={18}
                 />
                 <Input
                   placeholder="Quick search..."
-                  className="w-full sm:w-72 pl-10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-zinc-200 dark:border-zinc-800"
+                  className="w-full sm:w-72 pl-10 text-sm bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-zinc-200 dark:border-zinc-800"
                 />
               </div>
             </div>
@@ -96,10 +96,10 @@ export default function Home() {
       </section>
 
       {/* Code Preview Section */}
-      <section className="py-32 bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm border-y border-zinc-200 dark:border-zinc-800">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="order-2 md:order-1">
+      <section className="py-12 sm:py-16 md:py-32 bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm border-y border-zinc-200 dark:border-zinc-800">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center">
+            <div className="order-2 md:order-1 max-w-[350px] sm:max-w-none">
               <CodePreview code={codeExample} />
             </div>
             <div className="order-1 md:order-2">
@@ -117,9 +117,9 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-32">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
+      <section className="py-12 sm:py-16 md:py-32">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
             <Testimonial
               name="Sarah Chen"
               role="Frontend Developer"
@@ -275,16 +275,17 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-12 max-w-full">
               <ProductCard
                 name="Classic Utility Jacket"
                 price={110.0}
                 image="/assets/classic-utility-jacket.jpg"
                 sizes={["XS", "S", "M", "L", "XL"]}
               />
-              <div className="order-2 md:order-1">
-                <CodePreview
-                  code={`<div class="flex font-sans">
+            </div>
+            <div className="order-2 md:order-1 mt-3">
+              <CodePreview
+                code={`<div class="flex font-sans">
                         <div class="flex-none w-48 relative">
                           <img src="/classic-utility-jacket.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
                         </div>
@@ -299,8 +300,7 @@ export default function Home() {
                           </div>
                         </form>
                       </div>`}
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
